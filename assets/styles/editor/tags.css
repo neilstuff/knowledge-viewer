@@ -1,0 +1,77 @@
+.__editor h1 {
+    font-family: serif;
+}
+
+.__editor h2 {
+  font-family: serif;
+}
+
+.__editor h3 {
+  font-family: serif;
+}
+
+.__editor h4 {
+  font-family: serif;
+}
+
+.__editor h5 {
+  font-family: serif;
+}
+
+.__editor hr {
+    border: none;
+    border-top: 3px double rgba(0, 0, 0, 0.3);
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+    position:absolute;
+    width:99%
+  }
+  
+  .__editor hr:after {
+    background: #fff;
+    content: '§';
+    color:rgba(0, 0, 0, 0.5);
+    padding: 0 4px;
+    position: relative;
+    top: -10px;
+}
+
+.__editor pre {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+    font-family: monospace;   
+    font-size: 12px;
+    border-top-color: rgba(0, 0, 0, 0.09);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgba(0, 0, 0, 0.09);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.09);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgba(0, 0, 0, 0.09);
+    border-left-style: solid;
+    border-left-width: 1px;
+    display: block;
+}
+
+.__editor blockquote {
+    border-left-width: 3px;
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: rgba(0, 0, 0, 0.3);
+}
+
+.__editor table {
+  border: 1px dotted rgb(220,220,220);
+}
+
+.__editor td {
+  border: 1px dotted rgb(220,220,220);
+  height:20px;
+  min-width: 40px;
+  min-height: 20px;
+}
+

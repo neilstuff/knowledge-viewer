@@ -1,0 +1,24 @@
+.dropdown-bubble .dropdown-menu {
+    margin-top: 1em;
+}
+  
+.dropdown-bubble .dropdown-menu:before,
+.dropdown-bubble .dropdown-menu:after{
+    content: ' ';
+    display: block;
+    border-style: solid;
+    border-width: 0 .5em .8em .5em;
+    border-color: transparent;
+    position: absolute;
+    left: 1em;
+}
+
+.dropdown-bubble .dropdown-menu:before {
+    top: -.8em;
+    border-bottom-color: rgba(0,0,0,0.5);
+}
+
+.dropdown-bubble .dropdown-menu:after {
+    top: -.7em;
+    border-bottom-color: #fff;
+}

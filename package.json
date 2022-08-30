@@ -1,0 +1,48 @@
+{
+    "name": "knowledge-viewer",
+    "version": "1.0.0",
+    "description": "Knowledge viewer application",
+    "main": "main.js",
+    "scripts": {
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder --publish never",
+        "start": "electron ."
+    },
+    "build": {
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64",
+                        "ia32"
+                    ]
+                }
+            ]
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thesourorange/knowledge-viewer.git"
+    },
+    "keywords": [
+        "Electron"
+    ],
+    "author": "Neil Brittliff",
+    "license": "CC0-1.0",
+    "dependencies": {
+        "-": "0.0.1",
+       "jquery": "^3.4.1",
+        "jszip": "^3.5.0",
+        "mime": "^2.0.4"
+    },
+    "devDependencies": {
+        "electron": "^17.0.0",
+        "electron-builder": "^22.11.7",
+        "node": "^16.10.0"
+    },
+    "bugs": {
+        "url": "https://github.com/thesourorange/knowledge-viewer/issues"
+    },
+    "homepage": "https://github.com/thesourorange/knowledge-viewer#readme"
+}

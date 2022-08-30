@@ -1,0 +1,57 @@
+.bubble {
+    position: relative;
+    font-family: arial;
+    font-size: 1.1em;
+    background: #ffff80;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    z-index: 10;
+  }
+  
+  .bottom:after {
+    /* [THESE WILL CREATE THE TRIANGLE] */
+    content: '';
+    border: 20px solid transparent;
+    border-top-color: #ffff80;
+    border-bottom: 0;
+    /* [THESE WILL POSITION THE TRIANGLE] */
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -20px;
+  }
+  
+  .top:after {
+    content: '';
+    border: 20px solid transparent;
+    border-bottom-color: #ffff80;
+    border-top: 0;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -20px;
+  }
+  
+  .left:after {
+    content: '';
+    border: 20px solid transparent;
+    border-right-color: #ffff80;
+    border-left: 0;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    margin-top: -20px;
+  }
+  
+  .right:after {
+    content: '';
+    border: 20px solid transparent;
+    border-left-color: #ffff80;
+    border-right: 0;
+    position: absolute;
+    right: -20px;
+    top: 30%;
+    margin-top: -20px;
+  }
