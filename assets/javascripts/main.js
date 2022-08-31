@@ -143,6 +143,23 @@ $.fn.Join = (childNodes, html, level) => {
 }
 
 $(async() => {
+    function load(callback) {
+        var loadButton = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+
+        loadButton.setAttribute("type", "file");
+
+        loadButton.addEventListener('change', function(e) {
+            var files = e.target.files
+
+            callback(files);
+
+            return false;
+
+        }, false);
+
+        loadButton.click();
+
+    }
 
     document.addEventListener('dragover', event => event.preventDefault());
     document.addEventListener('drop', event => event.preventDefault());
@@ -223,14 +240,9 @@ $(async() => {
     };
 
     console.log("Start");
-    
-    tree = createTree('placeholder', 'white', NULL, CALLBACKS);
 
-    let root = tree.createNode('Fragments', false, 'assets/images/folder-icon.png', null, null, 'context1');
+    tree = createTree('placeholder', 'white', null, CALLBACKS);
 
-    tree.drawTree();
-
-    tree.selectNode(root);
     let paneSep = $("#separator")[0];
 
     paneSep.sdrag(function(el, pageX, startX, fix) {

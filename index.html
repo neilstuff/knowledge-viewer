@@ -10,20 +10,26 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/jszip/dist/jszip.min.js"></script>
 
-    <script src="assets/javascripts/util/fileutil.js"></script>
     <script src="assets/javascripts/util/sdrag.js"></script>
     <script src="assets/javascripts/util/treeview.js"></script>
     <script src="assets/javascripts/main.js"></script>
 
     <body style="font-family:Arial, Helvetica, sans-serif; font-size:10px; overflow:hidden;">
         <div class="display-area" style="overflow:hidden;">
-  
-            <div id="container" style="position:absolute; top:30px; left:10px; width:328px; bottom:10px; border: 1px solid rgba(0,0,0, 0.2); overflow:auto;">
+            <span style="position: absolute; top:0px; left:5px;">
+                <img src="assets/images/brain.svg" height="32" width="32"></button>
+            </span>
+
+            <span style="position: absolute; top:5px; right:10px;">
+                <button id="load_file" ><img src="assets/images/folder.svg" height="16" width="16"></button>
+            </span>
+
+            <div id="container" style="position:absolute; top:40px; left:10px; width:328px; bottom:10px; border: 1px solid rgba(0,0,0, 0.2); overflow:auto;">
                 <div id="placeholder" style="position:absolute; display:inline-block; top:10px; left:10px; right:10px; bottom:10px;  font-size:12px; ">
                 </div>
             </div>
-            <div id="separator" style="position:absolute; top:30px; left:335px; width:8px; bottom: 10px; font-size:14px; overflow:hidden; cursor: col-resize"></div>
-            <div id="details" class="details" style="position:absolute; top:30px; left:345px; right:10px; bottom: 10px; font-size:14px; border: 1px solid rgba(0,0,0, 0.2); overflow:auto;">
+            <div id="separator" style="position:absolute; top:40px; left:335px; width:8px; bottom: 10px; font-size:14px; overflow:hidden; cursor: col-resize"></div>
+            <div id="details" class="details" style="position:absolute; top:40px; left:345px; right:10px; bottom: 10px; font-size:14px; border: 1px solid rgba(0,0,0, 0.2); overflow:auto;">
             </div>
         </div>
 
