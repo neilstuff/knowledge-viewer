@@ -143,87 +143,57 @@ $.fn.Join = (childNodes, html, level) => {
 }
 
 $(async() => {
-    function load(callback) {
-        var loadButton = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
 
-        loadButton.setAttribute("type", "file");
 
-        loadButton.addEventListener('change', function(e) {
-            var files = e.target.files
+    document.getElementById('load_file').addEventListener('click', event => {
+        function load(callback) {
+            var loadButton = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
 
-            callback(files);
+            loadButton.setAttribute("type", "file");
 
-            return false;
+            loadButton.addEventListener('change', function(e) {
+                var files = e.target.files
 
-        }, false);
+                callback(files);
 
-        loadButton.click();
+                return false;
 
-    }
+            }, false);
+
+            loadButton.click();
+
+        }
+
+        load(function(files) {
+
+            function readFile(file) {
+
+                if ((/zip/i).test(file.type)) {
+                    pdfFile = file;
+
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        pdfFile = file;
+
+                        convert(reader.result);
+
+                    };
+
+                    reader.readAsArrayBuffer(file);
+
+                } else {
+                    alert(file.type + " - is not supported");
+                }
+
+            }
+        });
+
+
+    });
 
     document.addEventListener('dragover', event => event.preventDefault());
     document.addEventListener('drop', event => event.preventDefault());
-
-    $(document).on('click', 'a[href^="http"]', function(event) {
-        event.preventDefault();
-
-        if (event.target.id.includes('editor')) {
-            window.api.openUrl(this.href);
-        }
-
-    });
-
-    document.querySelectorAll('[data-tiny-editor]').forEach(editor => {
-        transformToEditor(editor);
-
-        editors.push(editor);
-
-        editor.onChange = (html) => {
-
-            if (tree != null & tree.selectedNode != null) {
-
-                documents[tree.selectedNode.id] = html;
-            }
-
-        }
-
-    });
-
-    $("#window-minimize").on('click', async(e) => {
-
-        window.api.minimize();
-
-    });
-
-    $("#window-maximize").on('click', async(e) => {
-        var isMaximized = window.api.isMaximized();
-
-        if (!isMaximized) {
-            $("#window-maximize").addClass("fa-window-restore");
-            $("#window-maximize").removeClass("fa-square");
-            window.api.maximize();
-        } else {
-            $("#window-maximize").removeClass("fa-window-restore");
-            $("#window-maximize").addClass("fa-square");
-            window.api.unmaximize();
-        }
-
-    });
-
-    $('#open').on('click', (e) => {
-
-        let result = window.api.showOpenDialog();
-
-        if (!result.canceled) {
-            let filepath = result.filePaths[0];
-
-            $(this).Load(filepath);
-            filename = filepath;
-            $('#filename').text(`${filepath}`);
-
-        }
-
-    });
 
     CALLBACKS = {
 
@@ -238,8 +208,6 @@ $(async() => {
 
 
     };
-
-    console.log("Start");
 
     tree = createTree('placeholder', 'white', null, CALLBACKS);
 
