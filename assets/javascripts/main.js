@@ -55,6 +55,7 @@ $(async() => {
                     var node = null;
                     var rootFolder = null;
                     var setData = false;
+                    var root = null;
 
                     zipFile.forEach(async function(relativePath, zipEntry) {
 
@@ -62,6 +63,7 @@ $(async() => {
 
                             if (node == null) {
                                 node = tree.createNode(zipEntry.name.replace(/.$/, ''), false, 'assets/images/folder-icon.png', null, null, 'context1');
+                                root = node;
                             } else {
                                 var paths = relativePath.replace(/.$/, '').split("/");
                                 var folder = ""
@@ -113,35 +115,36 @@ $(async() => {
 
                             if (fileName.startsWith('$$')) {
 
+                                console.log(filename);
+
                                 if (structure[path] == null) {
                                     node = tree.createNode(path, false, 'assets/images/folder-icon.png', null, null, 'context1');
                                     structure[path] = node;
                                 }
-
+        
                                 documents[structure[path].id] = data;
-
+        
                                 tree.selectedNode = structure[path];
-
+        
                                 if (`${path}` == `${fileName.replace('$$', '')}/` && !setData) {
-                                    document.getElementById('details').innerHTML = "";
+                                    document.getElementById('details').innerHTML = data;
                                     setData = true;
                                 }
-
+        
                             } else {
                                 var fragmentNode = structure[path].createChildNode(fileName, false, "assets/images/document-icon.png", null, "context2");
-
+        
                                 documents[fragmentNode.id] = data;
-
+        
                             }
-
                         }
 
                     });
 
                     tree.drawTree();
+                    tree.selectNode(root);
 
                 })
-
 
             }
 
